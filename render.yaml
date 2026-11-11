@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: wealthlab-investment-live
+    runtime: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/status
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: SCRAPPA_MAX_CALLS_PER_DAY
+        value: '100'
+      - key: SCRAPPA_API_KEY
+        sync: false
